@@ -22,19 +22,20 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
+      # GitHub's Ubuntu runners ship an Android SDK at $ANDROID_HOME; just add what we need.
       - name: Install SDK packages
-        run: yes | sdkmanager "platforms;android-34" "build-tools;34.0.0" > /dev/null
+        run: |
+          SDKM="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDKM" --licenses > /dev/null || true
+          "$SDKM" "platforms;android-34" "build-tools;34.0.0" > /dev/null
 
       - name: Decide build type
         id: mode
@@ -101,7 +102,7 @@ jobs:
             Motif records song ideas on your phone and uploads each one to Google Drive when it is done.
 
       - name: Upload APK as workflow artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: motif-apk
           path: motif-*.apk
