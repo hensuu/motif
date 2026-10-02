@@ -1,0 +1,113 @@
+<resources>
+    <style name="Theme.Motif" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/indigo</item>
+        <item name="colorOnPrimary">@color/on_indigo</item>
+        <item name="colorPrimaryContainer">@color/lavender</item>
+        <item name="colorOnPrimaryContainer">@color/on_lavender</item>
+        <item name="colorSecondary">@color/indigo</item>
+        <item name="colorOnSecondary">@color/on_indigo</item>
+        <item name="colorSecondaryContainer">@color/lime</item>
+        <item name="colorOnSecondaryContainer">@color/on_lime</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="colorSurface">@color/bg</item>
+        <item name="colorSurfaceVariant">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_dim</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/outline</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:fontFamily">@font/google_sans_flex</item>
+        <item name="fontFamily">@font/google_sans_flex</item>
+        <!-- Theme-level fontFamily misses the Material type scale, which carries its own
+             typeface, so the appearances the app actually renders are overridden too. -->
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Motif.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Motif.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Motif.BodySmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Motif.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Motif.TitleMedium</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Motif.LabelLarge</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Motif.HeadlineSmall</item>
+    </style>
+
+    <style name="TextAppearance.Motif.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/google_sans_flex</item>
+        <item name="android:fontFamily">@font/google_sans_flex</item>
+    </style>
+
+    <style name="TextAppearance.Motif.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/google_sans_flex</item>
+        <item name="android:fontFamily">@font/google_sans_flex</item>
+    </style>
+
+    <style name="TextAppearance.Motif.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/google_sans_flex</item>
+        <item name="android:fontFamily">@font/google_sans_flex</item>
+    </style>
+
+    <style name="TextAppearance.Motif.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/google_sans_flex</item>
+        <item name="android:fontFamily">@font/google_sans_flex</item>
+    </style>
+
+    <style name="TextAppearance.Motif.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/google_sans_flex</item>
+        <item name="android:fontFamily">@font/google_sans_flex</item>
+    </style>
+
+    <style name="TextAppearance.Motif.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/google_sans_flex</item>
+        <item name="android:fontFamily">@font/google_sans_flex</item>
+    </style>
+
+    <style name="TextAppearance.Motif.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/google_sans_flex</item>
+        <item name="android:fontFamily">@font/google_sans_flex</item>
+    </style>
+
+    <!-- Large, softly rounded pill button used for the primary action on every screen. -->
+    <style name="PillButton" parent="Widget.Material3.Button">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/google_sans_flex_medium</item>
+        <item name="android:textColor">@color/on_indigo</item>
+        <item name="backgroundTint">@color/indigo</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <!-- Big colored choice pills (timer lengths). Color is set per button. -->
+    <style name="ChoicePill" parent="Widget.Material3.Button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/google_sans_flex_medium</item>
+        <item name="cornerRadius">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Rounded surface card holding a row of settings. -->
+    <style name="SurfaceCard" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="cardCornerRadius">22dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/google_sans_flex_medium</item>
+    </style>
+
+    <style name="RowTitle">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="RowSubtitle">
+        <item name="android:textColor">@color/text_dim</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+</resources>

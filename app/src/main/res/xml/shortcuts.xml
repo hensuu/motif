@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Long-press the launcher icon → "Record". -->
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_record"
+        android:shortcutId="record"
+        android:shortcutShortLabel="@string/shortcut_record">
+        <intent
+            android:action="app.hensuu.motif.RECORD"
+            android:targetClass="app.hensuu.motif.MainActivity"
+            android:targetPackage="app.hensuu.motif" />
+    </shortcut>
+</shortcuts>

@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Motif</string>
+    <string name="tagline">錄下靈感，自動放進 Google Drive</string>
+
+    <string name="tap_to_record">點一下開始錄音</string>
+    <string name="tap_to_stop">錄音中 · 點一下停止</string>
+    <string name="record">錄音</string>
+    <string name="stop">停止</string>
+
+    <string name="drive_title">Google Drive</string>
+    <string name="drive_off">尚未連結 · 錄音只會存在手機</string>
+    <string name="drive_on">已連結 · 上傳到「%1$s」資料夾</string>
+    <string name="drive_connect">連結</string>
+    <string name="drive_reconnect">重新連結</string>
+    <string name="drive_error">無法連結 Google Drive：%1$s</string>
+    <string name="drive_setup_hint">如果一直失敗，多半是 Google Cloud 的 OAuth 用戶端還沒設定好（套件名稱或 SHA-1 不符），請看 README。</string>
+
+    <string name="raw_mic_title">原始收音</string>
+    <string name="raw_mic_sub">關掉降噪和自動增益，錄樂器、哼唱比較自然</string>
+    <string name="mobile_data_title">用行動數據上傳</string>
+    <string name="mobile_data_sub">關掉的話只在 Wi-Fi 下上傳</string>
+
+    <string name="recordings">錄音</string>
+    <string name="empty">還沒有錄音。也可以從快速設定的「Motif」圖塊，或長按 App 圖示直接開錄。</string>
+
+    <string name="st_queued">等待網路</string>
+    <string name="st_uploading">上傳中</string>
+    <string name="st_done">已在 Drive</string>
+    <string name="st_failed">上傳失敗</string>
+    <string name="st_auth">需要連結 Drive</string>
+
+    <string name="action_share">分享…</string>
+    <string name="action_retry">重新上傳</string>
+    <string name="action_delete">從手機刪除</string>
+    <string name="delete_title">刪除這段錄音？</string>
+    <string name="delete_body">只會刪除手機上的檔案，Drive 上的備份不受影響。</string>
+    <string name="delete_body_not_uploaded">這段還沒上傳到 Drive，刪掉就沒了。</string>
+    <string name="delete">刪除</string>
+    <string name="cancel">取消</string>
+
+    <string name="permission_needed">需要麥克風權限才能錄音</string>
+    <string name="error_permission">沒有麥克風權限</string>
+    <string name="error_start">無法開始錄音（麥克風可能正被其他 App 使用）</string>
+    <string name="error_play">無法播放這個檔案</string>
+
+    <string name="notif_recording">錄音中</string>
+    <string name="channel_recording">錄音</string>
+    <string name="tile_label">Motif 錄音</string>
+    <string name="tile_stop">停止錄音</string>
+    <string name="shortcut_record">開始錄音</string>
+</resources>

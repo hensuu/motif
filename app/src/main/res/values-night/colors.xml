@@ -1,0 +1,25 @@
+<resources>
+    <!-- Dark palette: deep indigo ground; the lime and lavender accents are dimmed so they sit
+         comfortably on it while keeping the same roles as the light palette. -->
+    <color name="bg">#15162A</color>
+    <color name="surface">#23253E</color>
+    <color name="surface_dim">#2D2F4B</color>
+    <color name="lavender">#4A52A0</color>
+    <color name="on_lavender">#ECEBF8</color>
+    <color name="lime">#B8CF3F</color>
+    <color name="lime_soft">#4D5626</color>
+    <color name="on_lime">#1E2308</color>
+    <color name="indigo">#8D97EA</color>
+    <color name="on_indigo">#15162A</color>
+    <color name="text_primary">#ECEBF8</color>
+    <color name="text_dim">#A6A7C6</color>
+    <color name="outline">#3B3D5C</color>
+
+    <color name="icon_bg">#4B56A9</color>
+    <color name="icon_fg">#DDF06B</color>
+
+    <color name="status_ok">#8FD3A6</color>
+    <color name="status_ok_container">#243A2E</color>
+    <color name="status_warn">#E89AA3</color>
+    <color name="status_warn_container">#3A2730</color>
+</resources>

@@ -1,0 +1,31 @@
+<resources>
+    <style name="Theme.Motif" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/indigo</item>
+        <item name="colorOnPrimary">@color/on_indigo</item>
+        <item name="colorPrimaryContainer">@color/lavender</item>
+        <item name="colorOnPrimaryContainer">@color/on_lavender</item>
+        <item name="colorSecondary">@color/indigo</item>
+        <item name="colorOnSecondary">@color/on_indigo</item>
+        <item name="colorSecondaryContainer">@color/lime</item>
+        <item name="colorOnSecondaryContainer">@color/on_lime</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="colorSurface">@color/bg</item>
+        <item name="colorSurfaceVariant">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_dim</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/outline</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:fontFamily">@font/google_sans_flex</item>
+        <item name="fontFamily">@font/google_sans_flex</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Motif.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Motif.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Motif.BodySmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Motif.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Motif.TitleMedium</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Motif.LabelLarge</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Motif.HeadlineSmall</item>
+    </style>
+</resources>

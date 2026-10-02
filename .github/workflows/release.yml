@@ -1,0 +1,107 @@
+name: Build and publish APK
+
+# Tag a commit (e.g. `git tag v1.0.0 && git push --tags`) or create a release from the
+# GitHub UI to build an APK and attach it to the GitHub Release. Pushes to main and manual runs
+# build the APK too and keep it as a workflow artifact.
+#
+# Signing: if the KEYSTORE_BASE64 / KEYSTORE_PASSWORD / KEY_ALIAS / KEY_PASSWORD secrets are
+# set, a signed release build is published. Otherwise a debug build is published, signed with
+# the shared debug key committed at app/debug.keystore, so every debug APK can update the last.
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install SDK packages
+        run: yes | sdkmanager "platforms;android-34" "build-tools;34.0.0" > /dev/null
+
+      - name: Decide build type
+        id: mode
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "type=release" >> "$GITHUB_OUTPUT"
+          else
+            echo "type=debug" >> "$GITHUB_OUTPUT"
+            echo "No signing secrets found; building a debug APK."
+          fi
+
+      - name: Restore signing keystore
+        if: steps.mode.outputs.type == 'release'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 -d > release.keystore
+          cat > keystore.properties <<EOF
+          storeFile=release.keystore
+          storePassword=$KEYSTORE_PASSWORD
+          keyAlias=$KEY_ALIAS
+          keyPassword=$KEY_PASSWORD
+          EOF
+
+      - name: Build APK
+        env:
+          BUILD_TYPE: ${{ steps.mode.outputs.type }}
+        run: |
+          chmod +x ./gradlew
+          if [ "$BUILD_TYPE" = "release" ]; then
+            ./gradlew assembleRelease
+          else
+            ./gradlew assembleDebug
+          fi
+
+      - name: Name the APK
+        env:
+          BUILD_TYPE: ${{ steps.mode.outputs.type }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          if [ "$BUILD_TYPE" = "release" ]; then
+            cp app/build/outputs/apk/release/app-release.apk "motif-${TAG}.apk"
+          else
+            cp app/build/outputs/apk/debug/app-debug.apk "motif-${TAG}-debug.apk"
+          fi
+
+      - name: Publish GitHub Release
+        # Manual runs from a branch have no tag to attach to; the APK is kept as an artifact instead.
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: motif-*.apk
+          name: Motif ${{ github.ref_name }}
+          generate_release_notes: true
+          # Semver: a hyphen means prerelease (v1.0.0-beta.1). Those stay off the "Latest"
+          # badge and /releases/latest, so a test build never looks stable.
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          body: |
+            Motif records song ideas on your phone and uploads each one to Google Drive when it is done.
+
+      - name: Upload APK as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: motif-apk
+          path: motif-*.apk

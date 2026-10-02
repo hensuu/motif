@@ -1,0 +1,21 @@
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+.kotlin/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Release signing — keep private
+keystore.properties
+*.keystore
+# Shared debug key so every CI build can update the previous one.
+!app/debug.keystore
+
+# Local agent / editor settings
+.claude/
+
+# direnv / nix
+.direnv/
